@@ -1,0 +1,161 @@
+/*
+.logo-nonagon-bg
+.logo-leg
+.logo-ankle
+.logo-foot
+.logo-torso
+.logo-chest
+.logo-shoulder
+.logo-feather-top
+.logo-feather-middle
+.logo-feather-bottom
+.logo-tail
+.logo-head
+.logo-forehead
+.logo-chin
+.logo-cheeks
+.logo-beak
+.logo-eye-left
+.logo-eye-right
+.logo-ear-right
+.logo-ear-left
+.logo-eyebrow-right
+.logo-eyebrow-left
+*/
+
+/* ----- SPIN HEAD ANIMATION ----- */
+
+.logo-face {
+  transform-origin: 86%;
+  /* transform: scaleX(0.8) translateX(10%); */
+  animation: spin-face 12s ease infinite;
+}
+
+@keyframes spin-face {
+  0% { transform: scaleX(1);}
+  55% { transform: scaleX(1);}
+  60% { transform: scaleX(0.8) translateX(10%);}
+  65% { transform: scaleX(0.8) translateX(10%);}
+  70% { transform: scaleX(1);}
+  100% { transform: scaleX(1);}
+}
+
+.logo-ear-left {
+  transform-origin: 0% 40%;
+  /* transform: skewX(-30deg); */
+  animation: spin-ear-left 12s ease infinite;
+}
+
+@keyframes spin-ear-left {
+  0% { transform: skewX(0deg);}
+  55% { transform: skewX(0deg);}
+  60% { transform: skewX(-30deg);}
+  65% { transform: skewX(-30deg);}
+  70% { transform: skewX(0deg);}
+  100% { transform: skewX(0deg);}
+}
+
+.logo-ear-right {
+  transform-origin: 50% 36%;
+  /* transform: skewX(30deg); */
+  animation: spin-ear-right 12s ease infinite;
+}
+
+@keyframes spin-ear-right {
+  0% { transform: skewX(0deg);}
+  55% { transform: skewX(0deg);}
+  60% { transform: skewX(30deg);}
+  65% { transform: skewX(30deg);}
+  70% { transform: skewX(0deg);}
+  100% { transform: skewX(0deg);}
+}
+
+.logo-beak {
+  transform-origin: 86%;
+  /* transform: scaleX(0.8) translateX(5%) skew(30deg, 0deg) rotateY(62deg); */
+  /* transform: scaleX(0.7) scaleY(0.6) translateX(16%) translateY(-11%) skew(30deg, 0deg); */
+  /* transform: scaleX(0.8) translateX(16%) skew(30deg, 0deg); */
+  animation: spin-pop-beak 12s infinite;
+}
+
+@keyframes spin-pop-beak {
+  0% { transform: unset;}
+  4% {transform: translateY(20%);}
+  8% {transform: unset;}
+  55% { transform: unset;}
+  60% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
+  65% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
+  70% { transform: unset;}
+  100% { transform: unset;}
+}
+
+
+/* @keyframes spin-beak {
+  0% { transform: unset;}
+  90% { transform: unset;}
+  95% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
+  100% { transform: unset;}
+} */
+
+/* ----- POP HEAD ANIMATION ----- */
+
+.logo-head-wrapper {
+  clip-path: path('M 0 0 L 116 0 L 116 74 L 0 74 Z');
+  -webkit-clip-path: path('M 0 0 L 39 0 L 39 74 L 0 74 Z');
+  animation: pop-head-wrapper 12s infinite;
+}
+
+
+.logo-head {
+  /* transform: translateY(20%); */
+  animation: pop-head 12s infinite;
+}
+
+@keyframes pop-head {
+  0% {transform: unset;}
+  4% {transform: translateY(20%);}
+  8% {transform: unset;}
+  100% {transform: unset;}
+}
+
+@keyframes pop-head-wrapper {
+  0% {clip-path: path('M 0 0 L 116 0 L 116 74 L 0 74 Z'); -webkit-clip-path: path('M 0 0 L 39 0 L 39 74 L 0 74 Z');}
+  2% {clip-path: path('M 0 0 L 120 0 L 115 74 L 0 74 Z'); -webkit-clip-path: path('M 0 0 L 39 0 L 37 28 L 0 29 Z');}
+  6% {clip-path: path('M 0 0 L 120 0 L 115 74 L 0 74 Z'); -webkit-clip-path: path('M 0 0 L 39 0 L 38 28 L 0 60 Z');}
+  8% {clip-path: path('M 0 0 L 116 0 L 116 74 L 0 74 Z'); -webkit-clip-path: path('M 0 0 L 39 0 L 39 74 L 0 74 Z');}
+  100% {clip-path: path('M 0 0 L 116 0 L 116 74 L 0 74 Z'); -webkit-clip-path: path('M 0 0 L 39 0 L 39 74 L 0 74 Z');}
+}
+
+/* ----- BLINK ANIMATION ----- */
+
+[class^="logo-eye-"] {
+  transform-origin: 50% 32%;
+  transform: scaleY(1);
+  animation: blink 6s infinite;
+}
+
+@keyframes blink {
+  0%    { transform: scaleY(.2);}
+  2%   { transform: scaleY(1); }
+
+@keyframes blink {
+  0%    { transform: scaleY(1);}
+  2%    { transform: scaleY(.2);}
+  4%   { transform: scaleY(1); }
+  48%    { transform: scaleY(1);}
+  50%    { transform: scaleY(.2);}
+  52%   { transform: scaleY(1); }
+  54%   { transform: scaleY(1); }
+  56%    { transform: scaleY(.2);}
+  58%   { transform: scaleY(1); }
+  100%  { transform: scaleY(1);}
+}
+
+  49%    { transform: scaleY(1);}
+  50%    { transform: scaleY(.2);}
+  51%   { transform: scaleY(1); }
+  54%   { transform: scaleY(1); }
+  55%    { transform: scaleY(.2);}
+  56%   { transform: scaleY(1); }
+  100%  { transform: scaleY(1);}
+}

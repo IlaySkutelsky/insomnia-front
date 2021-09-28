@@ -29,18 +29,46 @@
 }
 
 :root {
-  --content-width: 70%;
-  --main-bg-color: #aed9e5;
+  --content-width: 100%;
+  --main-bg-color: #dddee0;
 }
 
 body {
   margin: 0;
+  width: 100%;
   background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: Arimo, sans-serif;
   direction: rtl;
+}
+
+/* --------- SPLASH SCREEN --------- */
+
+.splash {
+  z-index: 2;
+  width: 100%;
+  height: 110vh;
+  background-color: #fff8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transition: 400ms cubic-bezier(0.50, -0.500, 0.5, 1);
+}
+
+.splash svg {
+  height: 90%;
+}
+
+.splash.hidden {
+  transform: translateY(-150%);
+}
+
+.logo.hidden {
+  transform: translateY(-110%) rotateZ(360deg);
 }
 
 /* --------- NAVIGATION BAR --------- */
@@ -50,144 +78,206 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   z-index: 1;
   /* background-color: white; */
 }
 
-/* nav::before {
-  content: '';
-  background-color: white;
-  position: absolute;
-  top: 1em;
-  z-index: -1;
-} */
-
 nav ul {
   list-style: none;
   width: 100%;
+  height: 3.8em;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 2.5em;
-  width: 90%;
-  border-radius: 1em;
-  line-height: 1.5em;
-  background-color: white;
-  border: 1px solid black;
+  /* border-radius: 1em; */
+  /* line-height: 1.5em; */
+  color: white;
+  font-size: 1.4em;
+  text-shadow: 0px 1px 1px black;
 }
 
 nav ul li {
-  padding: 0.5em 2em;
+  padding: 1.2em 2em;
 }
 
 
 nav ul li {
   cursor: pointer;
   transition: 200ms all;
-  min-width: 7em;
+  min-width: 5em;
+  border-radius: 0px 0px 15px 15px;
 }
 
 nav ul li a {
-  color: black;
+  color: white;
+  text-decoration: none;
+  /* color: black; */
 }
 
 
 nav ul li a:visited {
-  color: #0009;
+  color: white;
+  /* color: #0009; */
 }
 
 
 nav ul li:not(.logo-wrapper):hover {
   /* transform: scale(1.08); */
-  font-weight: 600;
-  background-color: var(--main-bg-color);
+  /* font-weight: 600; */
+  background-color: #19305e33;
 }
 
 .logo {
-  height: 80px;
+  height: 100px;
   position: relative;
-  top: -25px;
+  top: -20px;
   background-color: white;
   clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
   padding: 7px;
+  transition: 400ms all ease-in-out;
 }
 
-/* --------- HEADER --------- */
+/* --------- SLIDER --------- */
 
-header {
-  background-color: beige;
-  padding-top: 4em;
-  width: 100%;
-  height: 30em;
-  background-image: url('./assets/images/interactive-walls-panorama.jpg');
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  /* clip-path: polygon(0px 0px, 100% 0%, 100% 100%, 70% 100%, 70% 70%, 30% 70%, 30% 100%, 0px 100%); */
-}
-
-header .text-wrapper {
-  width: var(--content-width);
-  height: 10em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  background-color: #aed9e5;
-  border-radius: 6px 6px 0 0;
-}
-
-/* --------- SOCIAL --------- */
-
-aside.social {
+aside.slider {
   position: fixed;
-  left: 20px;
-  top: 40%;
+  right: 20px;
+  top: 20%;
+  z-index: 1;
 }
 
-aside.social ul {
+aside.slider ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-aside.social ul li {
+aside.slider ul li {
   cursor: pointer;
-  padding: 0px 3px;
+  padding: 10px 5px;
 }
 
-aside.social ul li img {
-  width: 40px;
-  height: 40px;
+aside.slider ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  width: min-content;
+}
+
+aside.slider ul li img {
+  width: 70px;
+  height: 70px;
   transition: 200ms all ease-in-out;
 }
 
-aside.social ul li:hover img {
-  filter: brightness(70%);
+aside.slider ul:hover li {
+  filter: opacity(.5);
+}
+
+aside.slider ul:hover li:hover {
+  filter: opacity(1);
+}
+
+/* --------- HEADER --------- */
+
+header {
+  /* padding-top: 4em; */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+header .bg-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  animation: fade-in-out 16s infinite ease-in-out;
+}
+
+header .bg-wrapper.triplets{
+  background-image: url('./assets/images/interactive-walls-panorama-2048.jpg');
+}
+
+header .bg-wrapper.purple{
+  background-image: url('./assets/images/wall-projection-crowd.jpg');
+  animation-delay: 8s;
+}
+
+@keyframes fade-in-out {
+  0% {opacity: 0%}
+  40% {opacity: 0%}
+  50% {opacity: 100%}
+  90% {opacity: 100%}
+  100% {opacity: 0%}
+}
+
+header .text-wrapper {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  color: white;
+}
+
+header span.down-arrow {
+  color: white;
+  font-size: 7em;
+  cursor: pointer;
+  padding: 10px;
+}
+
+header span.down-arrow:hover {
+  animation: hop 4s infinite ease-in-out;
+}
+
+@keyframes hop {
+  0%  {transform: translateY(0);    }
+  8%  {transform: translateY(-10px);}
+  16% {transform: translateY(0);    }
+  24% {transform: translateY(-10px);}
+  32% {transform: translateY(0);    }
+  40% {transform: translateY(0);    }
+  48% {transform: translateY(-10px);}
+  54% {transform: translateY(0);    }
+  66% {transform: translateY(-10px);}
+  72% {transform: translateY(0);    }
 }
 
 /* --------- SECTIONS --------- */
 
 main {
   width: 100%;
-  margin-top: 4em;
+  /* margin-top: 4em; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 main section {
-  width: var(--content-width);
-  min-height: 20vw;
-  border: 1px solid black;
-  margin: 2em 0;
+  width: 100%;
+  height: 100vh;
+  /* border: 1px solid black; */
+  /* margin: 2em 0; */
   position: relative;
   overflow: hidden;
-  cursor: pointer;
   padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
 }
 
 main section p {
@@ -198,8 +288,18 @@ main section h1 {
   direction: ltr;
   color: white;
   font-weight: bold;
-  font-size: 2.2em;
+  font-size: 4em;
   text-shadow: 0px 1px 0px #0008, 1px 0px 0px #0008;
+  margin: 0;
+  cursor: pointer;
+}
+
+main section h2 {
+  font-size: 2em;
+  color: white;
+  text-shadow: 1px 1px 0px #0008, 0px 0px 0px #0008;
+  margin-left: 2em;
+  cursor: pointer;
 }
 
 main section .bg-wrapper {
@@ -208,41 +308,39 @@ main section .bg-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  transition: 800ms all ease-in-out;
+  transition: 600ms all ease-in-out ;
   z-index: -1;
 }
 
 main section:hover .bg-wrapper {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
-section.description {
-  border: none;
-  background-color: #fff6;
-  border-radius: 15px;
+section#vr{
+  justify-content: flex-start;
 }
 
-section.description p span{
-  font-weight: bold;
+section#vr h1 {
+  margin-top: 10%;
 }
 
-section.vr .bg-wrapper{
+section#vr .bg-wrapper{
   background-image: url('./assets/images/sections/vuze icon.jpg');
   background-size: cover;
 }
 
-section.interactive .bg-wrapper{
+section#interactive .bg-wrapper{
   background-image: url('./assets/images/sections/20200616_110202.jpg');
   background-size: cover;
   background-position-y: 40%;
 }
 
-section.ar .bg-wrapper{
+section#ar .bg-wrapper{
   background-image: url('./assets/images/sections/cAstle-Run set 1.png');
   background-size: cover;
 }
 
-section.ed-tech .bg-wrapper{
+section#ed-tech .bg-wrapper{
   background-image: url('./assets/images/sections/Dor-Kedmi-Bezalel-2.jpg');
   background-size: cover;
   background-position-y: 40%;

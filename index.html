@@ -3,72 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <script src="main.js"></script> -->
+  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="logo-animation.css">
   <link rel="stylesheet" href="style.css">
   <title>Insomnia - XR design and develop</title>
 </head>
-<body>
+<body onload="bodyLoaded()">
+  <div class="splash">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 158.5 156.1" xml:space="preserve">
+      <style>
+        .st5{fill:#19305e}.st10{fill:#ffa471}.st20{fill:#6296bc}
+      </style>
+      <path class="logo-nonagon-bg" fill="#fff" d="M79.2 0 27.5 18.8 0 66.5l9.6 54.2 42.1 35.4h55.1l42.1-35.4 9.6-54.2L131 18.8z"/>
+      <g class="logo-leg">
+        <path class="logo-ankle st5" d="M93.9 115.2v15.5l-11.2-8.9z"/>
+        <path class="logo-foot st5" d="m101 130.8-18.3-11.7.1 11.7z"/>
+      </g>
+      <g class="logo-head-wrapper logo-sideways">
+        <g class="logo-head">
+          <path class="logo-chest logo-sideways" fill="#ffd8c2" d="m116.1 60.8-1.2 25.4-37.7-25.4z"/>
+          <path class="logo-cheeks st10" d="M77.2 60.8V35.5h38.9v25.3z"/>
+          <path class="logo-ear-right st5" d="m104.7 35.5 11.4-8.6v8.6z"/>
+          <path class="logo-ear-left st5" d="m88.7 35.5-11.5-8.6v8.6z"/>
+          <g class="logo-face">
+            <path class="logo-forehead st5" d="m77.2 35.5 19.4 15.4 19.5-15.4z"/>
+            <path class="logo-chin" fill="#ffc2a4" d="m116.1 60.8-19.5-9.9-19.4 9.9z"/>
+            <path class="logo-eye-left logo-sideways st5" d="M83.4 48.3h4.9v5.4h-4.9z"/>
+            <path class="logo-eye-right st5" d="M105.1 48.3h4.9v5.4h-4.9z"/>
+            <path class="logo-eyebrow-right st20" d="m100.2 52.7-3.6-1.8 19.5-15.4z"/>
+            <path class="logo-eyebrow-left st20" d="m93.2 52.6-16-17.1 19.4 15.4z"/>
+          </g>
+        </g>
+      </g>
+      <path class="logo-beak st5" d="m96.6 64.6 3.6-11.9-3.6-1.8-3.4 1.7z"/>
+      <g class="logo-torso">
+        <path class="logo-shoulder" fill="#aed9e5" d="m96.7 73.9 19.4-13.1-1.2 25.4z"/>
+        <path class="logo-feather-top" fill="#7eb6ce" d="m77.2 60.8 29.6 41.2 8.1-15.8z"/>
+        <path class="logo-feather-middle st20" d="m106.8 102-12.9 13.2-16.7-54.4z"/>
+        <path class="logo-feather-bottom" fill="#2d5684" d="m93.9 115.2-16.8 9.9.1-64.3z"/>
+        <path class="logo-tail st5" d="m35.1 125 42 .1.1-64.3z"/>
+      </g>
+    </svg>
+  </div>
+
   <nav>
     <ul>
       <li>אודות</li>
       <li>פרוייקטים</li>
       <li class="logo-wrapper">
-        <img class="logo" src="assets/logo-new icon.png" alt="Insomnia logo">
+        <img class="logo hidden" src="assets/logo-new icon.png" alt="Insomnia logo" loading="eager">
       </li>
       <li>בלוג</li>
       <li><a href="#contact">צרו קשר</a></li>
     </ul>
   </nav>
-  <header>
-    <div class="text-wrapper">
-      <h1>Insomnia Studio</h1>
-      <p>מתמחים בעיצוב ופיתוח עולמות וירטואליים וחווית משתמש ב XR.</p>
-    </div>
-  </header>
 
-  <aside class="social">
+  <aside class="slider">
     <ul>
       <li>
-        <img src="./assets/social-logos/facebook.svg" alt="facebook logo">
+        <a href="#vr">
+          <img src="./assets/slider/vr.svg" alt="vr symbol">
+          <span>VR</span>
+        </a>
       </li>
       <li>
-        <img src="./assets/social-logos/twitter.svg" alt="twitter logo">
+        <a href="#interactive">
+          <img src="./assets/slider/interactive.svg" alt="interactive symbol">
+          <span>Interactive</span>
+        </a>
       </li>
       <li>
-        <img src="./assets/social-logos/linkedin.svg" alt="linkedin logo">
+        <a href="#ar">
+          <img src="./assets/slider/ar.svg" alt="ar symbol">
+          <span>AR</span>
+        </a>
       </li>
       <li>
-        <img src="./assets/social-logos/instagram.svg" alt="instagram logo">
+        <a href="#ed-tech">
+          <img src="./assets/slider/ed-tech.svg" alt="ed-tech symbol">
+          <span>Ed-Tech</span>
+        </a>
       </li>
     </ul>
   </aside>
 
-  <main>
+  <header>
+    <div class="bg-wrapper triplets"></div>
+    <div class="bg-wrapper purple"></div>
+    <div class="text-wrapper">
+      <h1>Insomnia Studio</h1>
+      <p>מתמחים בעיצוב ופיתוח עולמות וירטואליים וחווית משתמש ב XR.</p>
+    </div>
+    <span class="down-arrow" onclick="scrollDown()">⌄</span>
+  </header>
 
-    <section class="description">
-      <p><span>אינסומניה</span> הוא סטודיו ייחודי המתמחה בפיתוח תוכן וחוויה עבור אפליקציות במציאות מדומה ורבודה, עיצוב אינטראקציה ועיצוב חוויית משתמש עבור עולמות אלו.</p>
-      <p>כל פרויקט מתחיל בחשיבה משותפת. יחד אנו מוצאים את הערך המוסף של הטכנולוגיה במוצר אותו תרצו לפתח. אינסומניה הוא One stop shop – כל אנשי המקצוע מתחומי העיצוב וההנדסה תחת קורת גג וירטואלית אחת, אשר בתהליך פיתוח ואבני דרך ידועות מראש מעצבים ומפתחים חוויות ומוצרים מושלמים. </p>
-      <p>אנחנו נלהבים, יש שיאמרו אפילו – אובססיביים – לחיבור בין המוחשי לדיגיטלי, לעיצוב וליצירה. הצוות שלנו בעל ניסיון רב בעיצוב ופיתוח בחיבור טכנולוגיות חדשות ודיסציפלינות שונות. החיבור הזה יוצר חוויה רב־חושית יוצאת דופן.</p>
-    </section>
-    <section class="vr">
-      <div class="bg-wrapper">
-      </div>
+  <main>
+    <section id="vr">
+      <div class="bg-wrapper"></div>
       <h1>VR</h1>
+      <h2>לצפייה בפרוייקטים</h2>
     </section>
-    <section class="interactive">
-      <div class="bg-wrapper">
-      </div>
+    <section id="interactive">
+      <div class="bg-wrapper"></div>
       <h1>Interactive</h1>
+      <h2>לצפייה בפרוייקטים</h2>
     </section>
-    <section class="ar">
-      <div class="bg-wrapper">
-      </div>
+    <section id="ar">
+      <div class="bg-wrapper"></div>
       <h1>AR</h1>
+      <h2>לצפייה בפרוייקטים</h2>
     </section>
-    <section class="ed-tech">
-      <div class="bg-wrapper">
-      </div>
+    <section id="ed-tech">
+      <div class="bg-wrapper"></div>
       <h1>Ed-Tech</h1>
+      <h2>לצפייה בפרוייקטים</h2>
     </section>
   </main>
   <section id="contact">
