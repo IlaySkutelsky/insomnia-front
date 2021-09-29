@@ -170,6 +170,7 @@ aside.slider ul {
 aside.slider ul li {
   cursor: pointer;
   padding: 10px 5px;
+  filter: drop-shadow(2px 2px 0px #000);
 }
 
 aside.slider ul li a {
@@ -188,15 +189,15 @@ aside.slider ul li img {
 }
 
 aside.slider ul:hover li:not(.active) {
-  filter: opacity(.5);
+  filter: opacity(.5) drop-shadow(2px 2px 0px #000);
 }
 
 aside.slider ul li:not(.active) {
-  filter: opacity(.5);
+  filter: opacity(.5) drop-shadow(2px 2px 0px #000);
 }
 
 aside.slider ul:hover li:hover {
-  filter: opacity(1);
+  filter: opacity(1) drop-shadow(2px 2px 0px #000);
 }
 
 /* --------- HEADER --------- */
