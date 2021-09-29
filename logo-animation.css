@@ -33,10 +33,10 @@
 
 @keyframes spin-face {
   0% { transform: scaleX(1);}
-  55% { transform: scaleX(1);}
-  60% { transform: scaleX(0.8) translateX(10%);}
-  65% { transform: scaleX(0.8) translateX(10%);}
-  70% { transform: scaleX(1);}
+  45% { transform: scaleX(1);}
+  50% { transform: scaleX(0.8) translateX(10%);}
+  55% { transform: scaleX(0.8) translateX(10%);}
+  60% { transform: scaleX(1);}
   100% { transform: scaleX(1);}
 }
 
@@ -48,10 +48,10 @@
 
 @keyframes spin-ear-left {
   0% { transform: skewX(0deg);}
-  55% { transform: skewX(0deg);}
-  60% { transform: skewX(-30deg);}
-  65% { transform: skewX(-30deg);}
-  70% { transform: skewX(0deg);}
+  45% { transform: skewX(0deg);}
+  50% { transform: skewX(-30deg);}
+  55% { transform: skewX(-30deg);}
+  60% { transform: skewX(0deg);}
   100% { transform: skewX(0deg);}
 }
 
@@ -63,10 +63,10 @@
 
 @keyframes spin-ear-right {
   0% { transform: skewX(0deg);}
-  55% { transform: skewX(0deg);}
-  60% { transform: skewX(30deg);}
-  65% { transform: skewX(30deg);}
-  70% { transform: skewX(0deg);}
+  45% { transform: skewX(0deg);}
+  50% { transform: skewX(30deg);}
+  55% { transform: skewX(30deg);}
+  60% { transform: skewX(0deg);}
   100% { transform: skewX(0deg);}
 }
 
@@ -82,10 +82,10 @@
   0% { transform: unset;}
   4% {transform: translateY(20%);}
   8% {transform: unset;}
-  55% { transform: unset;}
-  60% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
-  65% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
-  70% { transform: unset;}
+  45% { transform: unset;}
+  50% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
+  55% { transform: scaleX(0.7) scaleY(0.6) translateX(14%) translateY(-11%) skew(30deg, 5deg);}
+  60% { transform: unset;}
   100% { transform: unset;}
 }
 
@@ -131,31 +131,18 @@
 [class^="logo-eye-"] {
   transform-origin: 50% 32%;
   transform: scaleY(1);
-  animation: blink 6s infinite;
+  animation: blink 4s infinite;
 }
-
-@keyframes blink {
-  0%    { transform: scaleY(.2);}
-  2%   { transform: scaleY(1); }
 
 @keyframes blink {
   0%    { transform: scaleY(1);}
-  2%    { transform: scaleY(.2);}
-  4%   { transform: scaleY(1); }
+  3%    { transform: scaleY(.2);}
+  6%   { transform: scaleY(1); }
   48%    { transform: scaleY(1);}
-  50%    { transform: scaleY(.2);}
-  52%   { transform: scaleY(1); }
+  51%    { transform: scaleY(.2);}
   54%   { transform: scaleY(1); }
-  56%    { transform: scaleY(.2);}
-  58%   { transform: scaleY(1); }
-  100%  { transform: scaleY(1);}
-}
-
-  49%    { transform: scaleY(1);}
-  50%    { transform: scaleY(.2);}
-  51%   { transform: scaleY(1); }
-  54%   { transform: scaleY(1); }
-  55%    { transform: scaleY(.2);}
   56%   { transform: scaleY(1); }
+  59%    { transform: scaleY(.2);}
+  62%   { transform: scaleY(1); }
   100%  { transform: scaleY(1);}
 }

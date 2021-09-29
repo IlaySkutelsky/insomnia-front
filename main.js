@@ -11,21 +11,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 let lastsectionIndex = 0;
 let ticking = false;
 
+let body = document.body,
+    html = document.documentElement;
+let pageHeight = Math.max( body.scrollHeight, body.offsetHeight,
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+
 window.addEventListener('scroll', function() {
   if (!ticking) {
     setTimeout(function() {
       setTimeout(_=> ticking = false, 200)
-      let sectionIndex = Math.round((window.pageYOffset)/window.innerHeight );
+      if (window.pageYOffset>pageHeight-window.innerHeight) return
+      let sectionIndex = Math.round(window.pageYOffset/window.innerHeight);
       console.log(sectionIndex);
       if (sectionIndex == lastsectionIndex) return
       let sections = document.querySelectorAll("section, header")
       sections[sectionIndex].scrollIntoView({behavior: "smooth"})
       lastsectionIndex = sectionIndex;
+      makeIconActive(sectionIndex)
     }, 200);
 
     ticking = true;
   }
 });
+
+function makeIconActive(activeIndex) {
+  activeIndex -= 1
+  let icons = document.querySelectorAll("aside.slider ul li")
+  for (var i = 0; i < icons.length; i++) {
+    let iconElm = icons[i]
+    if (i == activeIndex) iconElm.classList.add("active")
+    else iconElm.classList.remove("active")
+  }
+}
+
+function scrollToBottom() {
+  window.scrollTo({
+    top: pageHeight,
+    left: 0,
+    behavior: 'smooth'
+  })
+  ticking = true;
+  setTimeout(_=> ticking = false, 200)
+}
 
 let bodyHasLoaded = false
 
